@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.rubyforge_project = %q{calendar_date_select}
   s.rubygems_version = %q{1.3.0}
   s.summary = %q{A prototype-based date-select widget}
-  s.test_files = []
+  s.test_files = ['spec/spec_helper.rb']
 
   if s.respond_to? :specification_version then
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
