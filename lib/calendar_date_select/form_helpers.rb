@@ -17,6 +17,14 @@ module CalendarDateSelect::FormHelpers
   # 
   #   <%= calendar_date_select_tag "name", "2007-01-01", :embedded => true %>
   # 
+  # === :on_modal
+  #
+  # If the calendar is being placed in a widget which is already a modal itself,
+  # it needs to be aware that it needs to appear on top of that modal.  Not
+  # compatible with :embedded => true.
+  #
+  # <%= calendar_date_select_tag "name", "2007-01-01", :on_modal => true %>
+  # 
   # === :hidden
   # 
   # Use a hidden element instead of a text box for a pop up calendar.  Not compatible with :embedded => true.  You'll probably want to use an onchange callback to do something with the value.
@@ -152,7 +160,7 @@ module CalendarDateSelect::FormHelpers
     def calendar_date_select_process_options(options)
       options, javascript_options = CalendarDateSelect.default_options.merge(options), {}
       callbacks = [:before_show, :before_close, :after_show, :after_close, :after_navigate]
-      for key in [:time, :valid_date_check, :embedded, :buttons, :clear_button, :format, :year_range, :month_year, :popup, :hidden, :minute_interval] + callbacks
+      for key in [:time, :valid_date_check, :embedded, :buttons, :clear_button, :format, :year_range, :month_year, :popup, :hidden, :minute_interval, :on_modal] + callbacks
         javascript_options[key] = options.delete(key) if options.has_key?(key)
       end
 

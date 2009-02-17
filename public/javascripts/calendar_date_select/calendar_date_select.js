@@ -120,7 +120,10 @@ CalendarDateSelect.prototype = {
     if(navigator.appName=="Microsoft Internet Explorer") this.iframe = $(document.body).build("iframe", {src: "javascript:false", className: "ie6_blocker"}, { left: left_px, top: top_px, height: c_height.toString()+"px", width: c_width.toString()+"px", border: "0px"})
   },
   initCalendarDiv: function() {
-    if (this.options.get("embedded")) {
+    if (this.options.get("on_modal")) {
+      var parent = this.target_element.parentNode;
+      var style = { position: "fixed", visibility:"hidden", left:0, top:0 }
+    } if (this.options.get("embedded")) {
       var parent = this.target_element.parentNode;
       var style = {}
     } else {
